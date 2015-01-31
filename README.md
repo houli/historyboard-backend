@@ -1,11 +1,14 @@
-#History Board Backend
+# History Board Backend
+
 This is the repository for the history board backend Rails application.
 
-##Ruby version
+## Ruby version
+
 2.2.0 is specified. You *will* want to use [RVM](http:/rvm.io "RVM") to manage your Ruby version rather than apt-get or the system version on Mac. RVM works fine on Mac and Linux.  
 If you're using Windows, a virtual machine runnning Linux is advised as configuring things like RVM can be pretty tricky on Windows.
 
-##Getting set up
+## Getting set up
+
 To get a local copy of this repository you will need to run the following:
 ```bash
 $ git clone http://gitlab.scss.tcd.ie/group-project-2015/history-board_backend.git
@@ -25,7 +28,8 @@ The last step is to set up the database.
 $ bundle exec rake db:migrate
 ```
 
-##Development server
+## Development server
+
 To start running a simple development server run the command
 ```bash
 $ bundle exec rails server
