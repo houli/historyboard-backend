@@ -12,7 +12,6 @@ class ThemesController < ApplicationController
   # GET /themes/1
   # GET /themes/1.json
   def show
-    render json: @theme
   end
 
   # POST /themes

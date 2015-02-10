@@ -12,7 +12,6 @@ class SubthemesController < ApplicationController
   # GET /subthemes/1
   # GET /subthemes/1.json
   def show
-    render json: @subtheme
   end
 
   # POST /subthemes
