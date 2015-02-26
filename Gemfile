@@ -15,6 +15,14 @@ gem 'sqlite3'
 
 gem 'jbuilder'
 
+# For file uploads and image processing
+gem 'carrierwave'
+gem 'carrierwave-mimetype-fu'
+gem 'rmagick'
+
+# Cross Origin Resource Sharing
+gem 'rack-cors', :require => 'rack/cors'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
