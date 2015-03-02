@@ -18,6 +18,14 @@ To install it run:
 ```bash
 $ gem install bundler
 ```
+For image upload we need Imagemagick. On Ubuntu this can be installed by running:
+```bash
+$ sudo apt-get install libmagickwand-dev
+```
+On Mac this can be installed from Homebrew using:
+```bash
+$ brew install imagemagick
+```
 Now you can navigate to the project directory and install the necessary gems.
 ```bash
 $ cd history-board_backend
