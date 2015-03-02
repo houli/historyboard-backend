@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'application#root'
   resources :themes, except: [:new, :edit]
   resources :subthemes, except: [:new, :edit]
   resources :posts, except: [:new, :edit]
