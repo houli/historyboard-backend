@@ -17,7 +17,9 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
+    params = post_params
+    params[:subtheme_ids] = JSON.parse(params[:subtheme_ids])
+    @post = Post.new(params)
 
     if @post.save
       render json: @post, status: :created, location: @post
@@ -31,7 +33,10 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
 
-    if @post.update(post_params)
+    params = post_params
+    params[:subtheme_ids] = JSON.parse(params[:subtheme_ids])
+
+    if @post.update(params)
       head :no_content
     else
       render json: @post.errors, status: :unprocessable_entity
@@ -53,6 +58,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :description, :image, subtheme_ids: [])
+      params.require(:post).permit(:title, :description, :image, :subtheme_ids)
     end
 end
