@@ -44,4 +44,16 @@ $ bundle exec rails server
 ```  
 Now you can access the server at `localhost:3000`
 
+## Email catcher
+To catch user verification emails being sent out you'll need to install mailcatcher and set it running.
+To install run
+```bash
+$ gem install mailcatcher
+```
+To get it to run type
+```bash
+$ mailcatcher
+```
+Now if you go to `localhost:1080` you'll be able to see the outbound emails that have been caught from the Rails app.
+
 Be aware that using bundler means that `bundle exec` must go before commands such as `rails generate`, `rails server` or `rake db:migrate`
