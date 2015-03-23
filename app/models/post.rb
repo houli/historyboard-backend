@@ -9,6 +9,7 @@ class Post < ActiveRecord::Base
   validates :title, presence: true, length: { minimum: 3, maximum: 128 }
   validates :description, presence: true, length: { minimum: 3, maximum: 500 }
   validates :subtheme_ids, presence: true
+  validates :all_tags, presence: true
 
   # Image uploading (also adds @theme.image.url etc.)
   mount_uploader :image, ImageUploader
