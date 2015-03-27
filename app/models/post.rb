@@ -26,6 +26,11 @@ class Post < ActiveRecord::Base
   end
 
   def self.tagged_with(name)
-    Tag.find_by_name!(name).posts
+    tag = Tag.where(name: name).first
+    if tag
+      tag.posts
+    else
+      []
+    end
   end
 end

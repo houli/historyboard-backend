@@ -4,5 +4,5 @@ class Tag < ActiveRecord::Base
   has_many :posts, through: :taggings
 
   # Validations
-  validates :name, presence: true, length: { minimum: 3, maximum: 128 }
+  validates :name, presence: true, uniqueness: true, length: { minimum: 3, maximum: 128 }
 end
