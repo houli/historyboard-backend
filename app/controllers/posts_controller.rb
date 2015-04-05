@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
   before_action :set_post, only: [:show, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /posts
   # GET /posts.json
@@ -20,6 +22,7 @@ class PostsController < ApplicationController
     params = post_params
     params[:subtheme_ids] = JSON.parse(params[:subtheme_ids])
     @post = Post.new(params)
+    @post.user = current_user
 
     if @post.save
       render json: @post, status: :created, location: @post
