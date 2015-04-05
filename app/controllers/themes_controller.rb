@@ -1,5 +1,7 @@
 class ThemesController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
   before_action :set_theme, only: [:show, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /themes
   # GET /themes.json
