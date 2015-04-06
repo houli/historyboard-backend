@@ -1,10 +1,13 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
   before_action :set_comment, only: [:update, :destroy]
+  load_and_authorize_resource
 
   # POST /comments
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
+    @comment.user = current_user
 
     if @comment.save
       render json: @comment, status: :created, location: @comment

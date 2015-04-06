@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   # Associations
   has_and_belongs_to_many :subthemes
   has_many :comments
+  belongs_to :user
 
   # Validations
   validates :title, presence: true, length: { minimum: 3, maximum: 128 }

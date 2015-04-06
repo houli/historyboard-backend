@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150315184241) do
+ActiveRecord::Schema.define(version: 20150405182635) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
     t.integer  "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -26,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150315184241) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "image"
+    t.integer  "user_id"
   end
 
   create_table "posts_subthemes", id: false, force: :cascade do |t|
@@ -75,6 +77,7 @@ ActiveRecord::Schema.define(version: 20150315184241) do
     t.text     "tokens"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email"

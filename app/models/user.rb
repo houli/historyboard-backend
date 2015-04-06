@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
           :confirmable
   include DeviseTokenAuth::Concerns::User
 
+  has_many :posts
+  has_many :comments
+
   validates :first_name, presence: true
   validates :last_name, presence: true
 end
