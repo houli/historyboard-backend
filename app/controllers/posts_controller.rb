@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :update, :destroy]
   before_action :set_post, only: [:show, :update, :destroy]
-  load_and_authorize_resource
+  load_and_authorize_resource :only => [:update, :destroy]
 
   # GET /posts
   # GET /posts.json
