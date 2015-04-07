@@ -6,7 +6,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    if params[:tag]
+      @posts = Post.tagged_with(params[:tag])
+    else
+      @posts = Post.all
+    end
 
     render json: @posts
   end
@@ -61,6 +65,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :description, :image, :subtheme_ids)
+      params.require(:post).permit(:title, :description, :image, :subtheme_ids, :all_tags)
     end
 end

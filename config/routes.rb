@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :subthemes, except: [:new, :edit]
   resources :posts, except: [:new, :edit]
   resources :comments, except: [:new, :edit, :show, :index]
+  #not sure if the following is needed
+  get 'tags/:tag', to: 'posts#index', as: "tag"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
