@@ -12,7 +12,7 @@ class PostsController < ApplicationController
       @posts = Post.all
     end
 
-    render json: @posts
+    render json: @posts.to_json(:include => :user)
   end
 
   # GET /posts/1
