@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      render json: @comment, status: :created, location: @comment
+      render json: @comment.to_json(include: { user: { only: [:id, :first_name, :last_name] } }), status: :created, location: @comment
     else
       render json: @comment.errors, status: :unprocessable_entity
     end
