@@ -12,7 +12,7 @@ class PostsController < ApplicationController
       @posts = Post.all
     end
 
-    render json: @posts.to_json(:include => :user)
+    render json: @posts.to_json(include: { user: { only: [:id, :first_name, :last_name] } })
   end
 
   # GET /posts/1
