@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   # Associations
   has_and_belongs_to_many :subthemes
-  has_many :comments
+  has_many :comments, dependent: :destroy
   belongs_to :user
   has_many :taggings
   has_many :tags, through: :taggings
